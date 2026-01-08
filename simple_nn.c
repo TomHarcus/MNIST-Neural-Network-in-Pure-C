@@ -156,7 +156,7 @@ void backprop() {
     for (int i = 0; i < OUTPUT_SIZE; i++) {
       delta1[j] += delta2[i] * W2[i][j];
     }
-    delta1[j] *= dsigmoid(a1[j]);
+    delta1[j] *= a1[j] * (1.0f - a1[j]);
   }
 
   for (int i = 0; i < OUTPUT_SIZE; i++) {
